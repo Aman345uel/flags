@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="flags-container">
+        <div class="flag-card" onclick="showCountryInfo('Afghanistan')"><img src="Afghanistan.png" alt="Afghanistan"></div>
+        <div class="flag-card" onclick="showCountryInfo('American Samoa')"><img src="American Samoa.png" alt="American Samoa"></div>
+        <div class="flag-card" onclick="showCountryInfo('Argentina')"><img src="Argentina.png" alt="Argentina"></div>
+        <div class="flag-card" onclick="showCountryInfo('Benin')"><img src="Benin.png" alt="Benin"></div>
+        <div class="flag-card" onclick="showCountryInfo('Virgin Islands')"><img src="Virgin Islands.png" alt="Virgin Islands"></div>
+        <div class="flag-card" onclick="showCountryInfo('Greece')"><img src="Greece.png" alt="Greece"></div>
+    </div>
+
+    <div id="info-container">
+        <div id="country-info">
+            <h2 id="country-name"></h2>
+            <p id="country-description"></p>
+            <p id="capital"></p>
+            <p id="population"></p>
+            <p id="callingCode"></p>
+        </div>
+    </div>
+
+    <script>
+        function showCountryInfo(countryCode) {
+            const countryInfo = getCountryInfo(countryCode);
+
+            document.getElementById('country-name').textContent = countryInfo.name;
+            document.getElementById('country-description').textContent = countryInfo.description;
+            document.getElementById('capital').textContent= countryInfo.capital;
+            document.getElementById('population').textContent=countryInfo.population;
+            document.getElementById('callingCode').textContent=countryInfo.callingCode;
+
+            document.getElementById('info-container').style.display = 'block';
+        }
+
+        function getCountryInfo(countryCode) {
+            switch (countryCode) {
+          case 'Afghanistan':
+               return { name: 'Afghanistan',  capital: 'capital- Kabul' ,population: 'population- 40218234',callingCode:'callingCode- 93' };
+              case 'American Samoa':
+                 return { name: 'American Samoa', capital: 'capital- pago pago' ,population:'population- 55197',callingCode: 'callingCode- 1'};
+                case 'Argentina':
+                    return { name: 'Argentina', capital:'Buenos Aires',population: 'population- 45376763',callingCode: 'callingCode- 54' };
+                    case 'Benin':
+                        return {name: 'Benin',capital: 'capital- Porto-Novo', population:'population-12123198',callingCode:'callingCode- 229'};
+                        case 'Virgin Islands':
+                            return {name: 'Virgin Islands',capital: 'capital- Charlotte Amalie',population: 'population-1232587',callingCode:'callingCode- 1 340'};
+                            case 'Greece':
+                                return {name: 'Greece',capital:'capital- Athens',population:'population- 10715549',callingCode:'callingCode- 30'};
+                default:
+                    return { name: 'Unknown Country', description: 'No information available for this country.' };
+            }
+        }
+    </script>
+
+</body>
+</html>
